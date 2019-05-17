@@ -8,9 +8,9 @@
 
 
 //: `CODE COMMENTS`
-// //MARK: Dont forget something
-// //FIXME: I need to fix crash in this code
-// //TODO: Add onemore check
+//MARK: Dont forget something
+//FIXME: I need to fix crash in this code
+//TODO: Add onemore check
 //: `FUNCTIONS`
 
 //func calculateFullName(_ firstName: String, _ secondName: String)
@@ -163,19 +163,19 @@
 //someSet.formUnion(anotherSet)
 
 //: `CLOSURES`
-typealias Operate = (Int, Int) -> (Int)
-
-func add(num1: Int, num2: Int) -> (Int) {
-    return num1 + num2
-}
-
-func printResultOf(_ a: Int, _ b: Int, operation: Operate) -> Int {
-    let result = operation(a, b)
-    print("Result is: \(result)")
-    return result
-}
-
-printResultOf(2, 3, operation: add) + 1
+//typealias Operate = (Int, Int) -> (Int)
+//
+//func add(num1: Int, num2: Int) -> (Int) {
+//    return num1 + num2
+//}
+//
+//func printResultOf(_ a: Int, _ b: Int, operation: Operate) -> Int {
+//    let result = operation(a, b)
+//    print("Result is: \(result)")
+//    return result
+//}
+//
+//printResultOf(2, 3, operation: add) + 1
 
 //let multiply: (Int, Int) -> Int = { (a: Int, b: Int) -> Int in
 //    return a * b
@@ -188,9 +188,87 @@ printResultOf(2, 3, operation: add) + 1
 //let multiply: (Int, Int) -> Int = { $0 * $1 }
 
 //printResultOf(2, 3) { $0 - $1 }
+//------------------------------------------------------------------------------
+//let numbers = [3, 4, 7, 2, 21, 32, 8, 9, 3, 76, 32, 43, 12, 76, 89]
+//
+//var count = 0
+//
+//func filterArray(_ array: [Int], _ f: (Int) -> Bool) -> [Int] {
+//    var filtered = [Int]()
+//
+//    for number in array {
+//        count += 1
+//        if f(number) {
+//            filtered.append(number)
+//        }
+//    }
+//    return filtered
+//}
+//
+//let version1 =
+//    filterArray(numbers, { (num: Int) -> Bool in
+//        return num % 2 == 1
+//    })
+//
+//let version2 =
+//    filterArray(numbers, { num in
+//        return num % 2 == 0
+//    })
+//
+//let version3 =
+//    filterArray(numbers, { $0 % 3 == 0 })
+//
+//let numbers2 = [1, 2, 3, 4, 5, 6, 7]
+//
+//
+//
+//var dictinaryNumbers2 = [Int: Bool]()
+//for number in numbers2 {
+//    dictinaryNumbers2[number] = true
+//}
+//dictinaryNumbers2[21]
+//
+//let matchArray =
+//    filterArray(numbers) { nbrFromNumbers in
+//        for nbrFromNumbers2 in numbers2 {
+//            count += 1
+//            if nbrFromNumbers == nbrFromNumbers2 {
+//                return true
+//            }
+//        }
+//        return false
+//}
+//
+//let matchArrayDic =
+//    filterArray(numbers) { key in
+//        return dictinaryNumbers2[key] == true
+//}
+//
+//let matchArrayDic2 =
+//    filterArray(numbers) { dictinaryNumbers2[$0] == true }
+//-------------------------------------------------------------------------
+//func dz1(_ f: () -> ()) {
+//    for i in 1...3 {
+//        print(i)
+//    }
+//    f()
+//}
+//
+//func prt() {
+//    print("prt func")
+//}
+//
+//dz1(prt)
+//
+//dz1 {
+//    print("catwoman")
+//}
 
+let numbers = [3, 4, 7, 2, 21, 32, 8, 9, 3, 76, 32, 43, 12, 76, 89]
+numbers.sorted(by: < )
+numbers.sorted { $0 < $1 }
 
-//: `CLOUSERS AND COLLECTIONS`
+//: `CLOSURES AND COLLECTIONS`
 //
 //var names: Array = ["Zeus", "Poseidon", "Ares", "Demeter"]
 //
