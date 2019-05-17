@@ -7,7 +7,10 @@
 //
 
 
-
+//: `CODE COMMENTS`
+// //MARK: Dont forget something
+// //FIXME: I need to fix crash in this code
+// //TODO: Add onemore check
 //: `FUNCTIONS`
 
 //func calculateFullName(_ firstName: String, _ secondName: String)
@@ -24,47 +27,49 @@
 //length
 
 //: `OPTIONALS`
-// Implicit unwrapping______________________________
-let someText = "123"
-var someInt = Int(someText)
-someInt = nil
-var someIntUwrapped = someInt ?? 0
-print(someIntUwrapped)
-
-
-// Nil-Coalescing operator__________________________
-var someString: String? = "Thor"
-someString = nil
-let someStringUNwrapped = someString ?? "(optional) someString = nil"
-print(someStringUNwrapped)
-
-var catName: String? = "Superman"
-
-// Optional Binding_________________________________
-if let catName = catName {
-    print(catName)
-} else {
-    print("catName is optional(nil)")
-}
-
-
-if let name = catName {
-    print("My cats name is \(name)")
-} else {
-    print("No cat")
-}
-
-var myNickName: String? = "Flash"
-
-func printNickname(_ nickname: String?) {
-    guard let nick = nickname else {
-        print("I dont have any nickname:(")
-        return
-    }
-    print("My nickname is \(nick)")
-}
-
-printNickname(myNickName)
+// Guard and if let statement_________________________
+//https://medium.com/@mimicatcodes/unwrapping-optional-values-in-swift-3-0-guard-let-vs-if-let-40a0b05f9e69
+//// Implicit unwrapping______________________________
+//let someText = "123"
+//var someInt = Int(someText)
+//someInt = nil
+//var someIntUwrapped = someInt ?? 0
+//print(someIntUwrapped)
+//
+//
+//// Nil-Coalescing operator__________________________
+//var someString: String? = "Thor"
+//someString = nil
+//let someStringUNwrapped = someString ?? "(optional) someString = nil"
+//print(someStringUNwrapped)
+//
+//var catName: String? = "Superman"
+//
+//// Optional Binding_________________________________
+//if let catName = catName {
+//    print(catName)
+//} else {
+//    print("catName is optional(nil)")
+//}
+//
+//
+//if let name = catName {
+//    print("My cats name is \(name)")
+//} else {
+//    print("No cat")
+//}
+//
+//var myNickName: String? = "Flash"
+//
+//func printNickname(_ nickname: String?) {
+//    guard let nick = nickname else {
+//        print("I dont have any nickname:(")
+//        return
+//    }
+//    print("My nickname is \(nick)")
+//}
+//
+//printNickname(myNickName)
 
 //: `ARRAYS`
 
@@ -105,7 +110,6 @@ printNickname(myNickName)
 //for (index, name) in playersName.enumerated() {
 //    print(name, playersScore[index])
 //}
-
 //: `DICTIONARIES`
 //
 //var emptyDictionary: [String: Int] = [:]
@@ -158,33 +162,33 @@ printNickname(myNickName)
 //
 //someSet.formUnion(anotherSet)
 
-//: `CLOUSURE`
+//: `CLOSURES`
+typealias Operate = (Int, Int) -> (Int)
 
-//typealias Operate = (Int, Int) -> (Int)
-//
-//func add(num1: Int, num2: Int) -> (Int) {
-//    return num1 + num2
+func add(num1: Int, num2: Int) -> (Int) {
+    return num1 + num2
+}
+
+func printResultOf(_ a: Int, _ b: Int, operation: Operate) -> Int {
+    let result = operation(a, b)
+    print("Result is: \(result)")
+    return result
+}
+
+printResultOf(2, 3, operation: add) + 1
+
+//let multiply: (Int, Int) -> Int = { (a: Int, b: Int) -> Int in
+//    return a * b
 //}
-//
-//func printResultOf(_ a: Int, _ b: Int, operation: Operate) {
-//    let result = operation(a, b)
-//    print("Result is: \(result)")
+
+//let multiply: (Int, Int) -> Int = { (a, b) in
+//    return a * b
 //}
-//
-////printResultOf(2, 3, operation: add)
-//
-////let multiply: (Int, Int) -> Int = { (a: Int, b: Int) -> Int in
-////    return a * b
-////}
-//
-////let multiply: (Int, Int) -> Int = { (a, b) in
-////    return a * b
-////}
-//
-////let multiply: (Int, Int) -> Int = { $0 * $1 }
-//
+
+//let multiply: (Int, Int) -> Int = { $0 * $1 }
+
 //printResultOf(2, 3) { $0 - $1 }
-//
+
 
 //: `CLOUSERS AND COLLECTIONS`
 //
