@@ -26,6 +26,15 @@
 //name
 //length
 
+//: `USEFUL API`
+//MARK: Extension to make first letter in sentence uppercased
+
+//extension String {
+//    var firstUppercased: String {
+//        return prefix(1).uppercased()  + dropFirst()
+//    }
+//}
+//------------------------------------------------------------------------
 //: `CHARACTERS`
 //let myText = "Hello my dear world, i love you so much!"
 //var arrayTextChars = [Character]()
@@ -568,3 +577,29 @@
 //wizard.firstName = "Harry"
 //wizard.lastName = "Potter"
 //wizard.fullName = " "
+//---------------------------------------------------------------------
+
+
+
+extension String {
+    var firstUppercased: String {
+        return prefix(1).uppercased()  + dropFirst()
+    }
+}
+
+
+struct Student {
+    var firstName: String {
+        didSet(oldFirstName) {
+            print("didset \(firstName) instead of \(oldFirstName)")
+            firstName = firstName.firstUppercased
+        }
+    }
+}
+
+var student = Student(firstName: "Danyil")
+student.firstName
+
+student.firstName = "keanu reaves"
+student.firstName
+student.firstName = "keanu reaves"
