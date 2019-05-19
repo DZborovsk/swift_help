@@ -26,6 +26,15 @@
 //name
 //length
 
+//: `CHARACTERS`
+//let myText = "Hello my dear world, i love you so much!"
+//var arrayTextChars = [Character]()
+//
+//for c in myText {
+//    arrayTextChars.append(c)
+//}
+//arrayTextChars
+
 //: `OPTIONALS`
 // Guard and if let statement_________________________
 //https://medium.com/@mimicatcodes/unwrapping-optional-values-in-swift-3-0-guard-let-vs-if-let-40a0b05f9e69
@@ -110,6 +119,10 @@
 //for (index, name) in playersName.enumerated() {
 //    print(name, playersScore[index])
 //}
+//-----------------------------------------------------------------------
+
+
+
 //: `DICTIONARIES`
 //
 //var emptyDictionary: [String: Int] = [:]
@@ -263,10 +276,44 @@
 //dz1 {
 //    print("catwoman")
 //}
-
-let numbers = [3, 4, 7, 2, 21, 32, 8, 9, 3, 76, 32, 43, 12, 76, 89]
-numbers.sorted(by: < )
-numbers.sorted { $0 < $1 }
+//
+//let numbers = [3, 4, 7, 2, 21, 32, 8, 9, 3, 76, 32, 43, 12, 76, 89]
+//numbers.sorted(by: < )
+//numbers.sorted { $0 < $1 }
+//------------------------------------------------------------------------
+//let numbers = [3, 4, 7, 2, 21, 32, 8, 9, 3, 76, 32, 43, 12, 76, 89]
+//
+//func arrayIntFunc(array: [Int], f: (Int, Int?) -> Bool) -> Int {
+//    var optionalInt: Int?
+//
+//    for nbr in array {
+//        if f(nbr, optionalInt) {
+//            optionalInt = nbr
+//        }
+//    }
+////    guard let nonOptionalInt = optionalInt else {
+////        print("optionalInt == nil")
+////        return 0
+////    }
+//    return optionalInt ?? 0
+////    return nonOptionalInt
+//}
+//
+//arrayIntFunc(array: numbers) {
+//    $1 == nil || $0 > $1!
+//}
+//arrayIntFunc(array: numbers) { nbr, optionalInt in
+//    if optionalInt == nil {
+//        return true
+//    }
+//
+//    if let nonOptional = optionalInt {
+//        if nonOptional < nbr {
+//            return true
+//        }
+//    }
+//    return false
+//}
 
 //: `CLOSURES AND COLLECTIONS`
 //
