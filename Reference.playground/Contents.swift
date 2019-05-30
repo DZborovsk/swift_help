@@ -11,6 +11,14 @@
 //MARK: Dont forget something
 //FIXME: I need to fix crash in this code
 //TODO: Add onemore check
+//: `USEFUL API`
+//MARK: Extension to make first letter in sentence uppercased
+//extension String {
+//    var firstUppercased: String {
+//        return prefix(1).uppercased()  + dropFirst()
+//    }
+//}
+
 //: `FUNCTIONS`
 
 //func calculateFullName(_ firstName: String, _ secondName: String)
@@ -26,15 +34,6 @@
 //name
 //length
 
-//: `USEFUL API`
-//MARK: Extension to make first letter in sentence uppercased
-
-//extension String {
-//    var firstUppercased: String {
-//        return prefix(1).uppercased()  + dropFirst()
-//    }
-//}
-//------------------------------------------------------------------------
 //: `CHARACTERS`
 //let myText = "Hello my dear world, i love you so much!"
 //var arrayTextChars = [Character]()
@@ -45,9 +44,9 @@
 //arrayTextChars
 
 //: `OPTIONALS`
-// Guard and if let statement_________________________
+// Guard and if let statement___________________________________________
 //https://medium.com/@mimicatcodes/unwrapping-optional-values-in-swift-3-0-guard-let-vs-if-let-40a0b05f9e69
-//// Implicit unwrapping______________________________
+//// Implicit unwrapping_________________________________________________
 //let someText = "123"
 //var someInt = Int(someText)
 //someInt = nil
@@ -55,7 +54,7 @@
 //print(someIntUwrapped)
 //
 //
-//// Nil-Coalescing operator__________________________
+//// Nil-Coalescing operator___________________________________________________
 //var someString: String? = "Thor"
 //someString = nil
 //let someStringUNwrapped = someString ?? "(optional) someString = nil"
@@ -63,7 +62,7 @@
 //
 //var catName: String? = "Superman"
 //
-//// Optional Binding_________________________________
+//// Optional Binding_________________________________________________________
 //if let catName = catName {
 //    print(catName)
 //} else {
@@ -343,7 +342,7 @@
 //
 //
 //// `filter`
-//var prices = [1.50, 10.00, 4.99, 2.30, 8.19]
+var prices = [1.50, 10.00, 4.99, 2.30, 8.19]
 //
 //
 //
@@ -362,6 +361,7 @@
 //// `map`
 //// TODO: Rewrite the loop below using `map`
 //let salePrices = prices.map {$0 * 0.9}
+//let salePrices = prices.map({ $0 * 0.9 })
 //salePrices
 //
 //// `map` as a `for` loop
@@ -469,7 +469,7 @@
 
 //: `STRUCTURES`
 //typealias Miles = Double
-//
+////STRUCT methods_____________________________________________________________
 //struct Location {
 //    let x: Miles
 //    let y: Miles
@@ -577,29 +577,98 @@
 //wizard.firstName = "Harry"
 //wizard.lastName = "Potter"
 //wizard.fullName = " "
-//---------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+//
+//: `LAZY STORED PROPERTIES`
+//class DataImporter {
+//    /*
+//     DataImporter is a class to import data from an external file.
+//     The class is assumed to take a nontrivial amount of time to initialize.
+//     */
+//    var filename = "data.txt"
+//    // the DataImporter class would provide data importing functionality here
+//}
+//
+//class DataManager {
+//    lazy var importer = DataImporter()
+//    var data = [String]()
+//    // the DataManager class would provide data management functionality here
+//}
+//
+//let manager = DataManager()
+//manager.data.append("Some data")
+//manager.data.append("Some more data")
+//// the DataImporter instance for the importer property has not yet been created
+//-------------------------------------------------------------------------------
+
+//: `Computed properties`
+//extension String {
+//    var firstUppercased: String {
+//        return prefix(1).uppercased()  + dropFirst()
+//    }
+//}
+//
+////Property Observers__________________________________________________________
+//struct Student {
+//
+//    static let weapon = "Sword"
+//    static var totalStudents = 0
+//
+//    var firstName: String {
+////        willSet(newFirstName) {
+////            print("willset \(newFirstName) instead of \(firstName)")
+////        }
+//        didSet(oldFirstName) {
+//            firstName = firstName.firstUppercased
+//        }
+//    }
+//
+//    var lastName: String {
+//        didSet {
+//            lastName = lastName.firstUppercased
+//        }
+//    }
+//
+//    var fullName: String {
+//        get { return firstName + " " + lastName }
+//        set {
+//            //print("fullName want to be set to \(newValue)")
+//            //Converting substring to string
+////            let arrNewValue = newValue.split(separator: " ").map(String.init)
+////
+////            if arrNewValue.count > 0 {
+////                firstName = arrNewValue[0]
+////            }
+////            if arrNewValue.count > 1 {
+////                lastName = arrNewValue[1]
+////            }
+//            let arrNewValue = newValue.split(separator: " ").map(String.init)
+//
+//            guard arrNewValue.count == 2 else {
+//                print("fullName must contain first and last name")
+//                return
+//            }
+//
+//            firstName = arrNewValue.first!
+//            lastName = arrNewValue[1]
+//        }
+//    }
+//
+//    init(firstName: String, lastName: String) {
+//        self.firstName = firstName
+//        self.lastName = lastName
+//
+//        Student.totalStudents += 1
+//    }
+//
+//}
+//
+//var studentBoy = Student(firstName: "Danyil", lastName: "Zborovskyi")
+//studentBoy.fullName
+//
+//studentBoy.fullName = "Bob Li"
+//studentBoy.fullName
+//Student.weapon
+//Student.totalStudents
 
 
-
-extension String {
-    var firstUppercased: String {
-        return prefix(1).uppercased()  + dropFirst()
-    }
-}
-
-
-struct Student {
-    var firstName: String {
-        didSet(oldFirstName) {
-            print("didset \(firstName) instead of \(oldFirstName)")
-            firstName = firstName.firstUppercased
-        }
-    }
-}
-
-var student = Student(firstName: "Danyil")
-student.firstName
-
-student.firstName = "keanu reaves"
-student.firstName
-student.firstName = "keanu reaves"
