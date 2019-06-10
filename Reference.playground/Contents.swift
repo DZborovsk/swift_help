@@ -670,5 +670,112 @@ var prices = [1.50, 10.00, 4.99, 2.30, 8.19]
 //studentBoy.fullName
 //Student.weapon
 //Student.totalStudents
+//
+//struct Temperature {
+//    var fahrenheit: Double {
+//        didSet {
+//            if fahrenheit > 100 {
+//                print("warning \(fahrenheit) F")
+//            }
+//        }
+//    }
+//    var celsius: Double {
+//        get { return (fahrenheit - 32) / 1.8 }
+//        set { fahrenheit = newValue * 1.8 + 32 }
+//    }
+//
+//}
+//
+//var kyiv = Temperature(fahrenheit: 5)
+//kyiv.celsius
+//kyiv.celsius = 39
+//kyiv.celsius
+//kyiv.fahrenheit
+//______________________________________________________________________________
+
+//struct Student {
+//    var firstName: String
+//    var lastName: String
+//    var grade: UInt
+//}
+//
+//struct Classroom {
+//    var className: String
+//    var students: [Student]
+//
+//    func highestGrade() -> UInt? {
+//        return students.map { $0.grade } .max()
+//    }
+//
+//}
+//
+//var firstClass = Classroom(
+//    className: "GoT",
+//    students: [
+//        Student(firstName: "Maxim", lastName: "Destro", grade: 5),
+//        Student(firstName: "John", lastName: "Snow", grade: 78),
+//        Student(firstName: "Dany", lastName: "Targaryen", grade: 41)
+//    ])
+//firstClass.highestGrade()
+//
+//extension Classroom {
+//    mutating func curveGrades() {
+//        guard let highest = highestGrade() else {
+//            print("students == nil")
+//            return
+//        }
+//
+//        students = students.map { [diffGrade = 100 - highest] student in
+//            var student = student
+//
+//            student.grade += diffGrade
+//            return student
+//        }
+//        .sorted{ $0.grade > $1.grade }
+//
+//    }
+//}
+//
+//firstClass.curveGrades()
+//firstClass.students
+
+//: `CLASSES`
 
 
+//: `INITIALIZATION`
+//struct Celsius {
+//    var temperatureInCelsius: Double
+//    init(fromFahrenheit fahrenheit: Double) {
+//        temperatureInCelsius = (fahrenheit - 32.0) / 1.8
+//    }
+//    init(fromKelvin kelvin: Double) {
+//        temperatureInCelsius = kelvin - 273.15
+//    }
+//    init(_ celsius: Double) {
+//        temperatureInCelsius = celsius
+//    }
+//}
+//let boilingPointOfWater = Celsius(fromFahrenheit: 212.0)
+//// boilingPointOfWater.temperatureInCelsius is 100.0
+//let freezingPointOfWater = Celsius(fromKelvin: 273.15)
+//// freezingPointOfWater.temperatureInCelsius is 0.0
+//let bodyTemperature = Celsius(37.0)
+//// bodyTemperature.temperatureInCelsius is 37.0
+
+// Optional init_____________________________________________________________________
+
+//class SurveyQuestion {
+//    var text: String
+//    var response: String?
+//    init(text: String) {
+//        self.text = text
+//    }
+//    func ask() {
+//        print(text)
+//    }
+//}
+//let cheeseQuestion = SurveyQuestion(text: "Do you like cheese?")
+//cheeseQuestion.ask()
+//// Prints "Do you like cheese?"
+//cheeseQuestion.response = "Yes, I do like cheese."
+//print(cheeseQuestion.response!)
