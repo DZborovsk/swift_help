@@ -762,6 +762,47 @@ var prices = [1.50, 10.00, 4.99, 2.30, 8.19]
 //let bodyTemperature = Celsius(37.0)
 //// bodyTemperature.temperatureInCelsius is 37.0
 
+// Designated and Convenience Initializers_______________________________________
+//class Student {
+//    var firstName: String = ""
+//    var lastName: String = ""
+//    var fullName: String {
+//        return firstName + " " + lastName
+//    }
+//
+//    init(firstName: String, lastName: String) {
+//        self.firstName = firstName
+//        self.lastName = lastName
+//    }
+//}
+//
+//class musicBand: Student {
+//    var instrument: String
+//    var experience: Int
+//
+//    init(firstName: String, lastName: String,
+//         inst instrument: String, exp experience: Int) {
+//        self.instrument = instrument
+//        self.experience = experience
+//        super.init(firstName: firstName, lastName: lastName)
+//    }
+//
+//    convenience init(inst instrument: String) {
+//        self.init(firstName: "", lastName: "", inst: instrument, exp: 0)
+//    }
+//
+//    convenience init(exp experience: Int) {
+//        self.init(firstName: "", lastName: "", inst: "", exp: experience)
+//    }
+//}
+//
+//
+//var joe = musicBand(exp: 5)
+//var mark = musicBand(inst: "Piano")
+//mark.experience
+//joe.instrument
+
+
 // Optional init_____________________________________________________________________
 
 //class SurveyQuestion {
@@ -779,3 +820,70 @@ var prices = [1.50, 10.00, 4.99, 2.30, 8.19]
 //// Prints "Do you like cheese?"
 //cheeseQuestion.response = "Yes, I do like cheese."
 //print(cheeseQuestion.response!)
+
+//: `PROTOCOLS`
+//protocol Animal {
+//    var side: String { get }
+//}
+//
+//class Cow: Animal {
+//    var name: String = ""
+//    var side: String = "Evil"
+//
+//    func cowBoss() { }
+//}
+//
+//class Dog: Animal {
+//    var power = "dark"
+//    var side: String = "Good"
+//
+//}
+//
+//var cow1 = Cow()
+//var cow2 = Cow()
+//var cow3 = Cow()
+//var cow4 = Cow()
+//
+//var dog1 = Dog()
+//var dog2 = Dog()
+//var dog3 = Dog()
+//var dog4 = Dog()
+//
+//
+//
+//var arrayOfAnimals: [Animal] = [
+//    cow1, dog1, dog2, cow2, cow3, cow4, dog3, dog4
+//]
+//
+//for animal in arrayOfAnimals {
+//    print(animal.side)
+//}
+
+//: `Memory management`
+//class Person {
+//    let name: String
+//    weak var bestBuddy: Person?
+//    
+//    init(name: String) {
+//        self.name = name
+//    }
+//    
+//    deinit {
+//        print("class with object name: \(name) deallocated")
+//    }
+//}
+//
+///*
+//var person: Person? = Person(name: "Alex")
+//person = Person(name: "Pink")
+//person = nil
+//*/
+//
+//var alex: Person? = Person(name: "Alex")
+//var jimmy: Person? = Person(name: "Jimmy")
+//
+//alex?.bestBuddy = jimmy
+//jimmy?.bestBuddy = alex
+//
+//alex = nil
+////jimmy?.bestBuddy = nil
