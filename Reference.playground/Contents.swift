@@ -859,6 +859,41 @@ var prices = [1.50, 10.00, 4.99, 2.30, 8.19]
 //    print(animal.side)
 //}
 
+//import UIKit
+//
+//protocol Persist {
+//    func save()
+//}
+//
+//class Monster: Persist {
+//    func save() {
+//        print("Monster saved")
+//    }
+//}
+//
+//class Sword: Persist {
+//    func save() {
+//        print("Sword saved")
+//    }
+//}
+//
+//let wolfMonster = Monster()
+//let greatSword = Sword()
+//let items: [Persist] = [
+//    wolfMonster, greatSword
+//]
+//
+//class GameManager {
+//    func saveLevel(_ items: [Persist]) {
+//        for item in items {
+//            item.save()
+//        }
+//    }
+//}
+//
+//let player1 = GameManager()
+//player1.saveLevel(items)
+
 //: `Memory management`
 //class Person {
 //    let name: String
